@@ -2,6 +2,11 @@ const getUserDetails = async (userName = 'ruthwikreddy7') => {
     const url = `https://api.github.com/users/${userName}`;
     const response = await fetch(url);
     const data = await response.json();
+    if(data.login==undefined)
+    {
+      alert("please enter valid use name because the user you are searching doesnot exist");
+      return;
+    }
   
     const avatar = document.querySelector('#avatar');
     const name = document.querySelector('.name');
